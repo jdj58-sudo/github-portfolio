@@ -6,18 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Jonathan Juarez | Data Science & Research</title>
-
-  <meta name="description"
-        content="Jonathan Juarez's academic and research portfolio in data science,
-        applied mathematics, economics, environmental science, and public policy.">
-
+  <meta name="description" content="Jonathan Juarez's academic and research portfolio in data science, applied mathematics, economics, environmental science, and public policy.">
   <meta name="author" content="Jonathan Juarez">
   <meta name="theme-color" content="#101c2c">
 
-  <!-- Open Graph metadata for sharing -->
   <meta property="og:title" content="Jonathan Juarez | Research Portfolio">
-  <meta property="og:description"
-        content="Data science, environmental research, and quantitative analysis.">
+  <meta property="og:description" content="Data science, environmental research, and quantitative analysis.">
   <meta property="og:type" content="website">
 
   <style>
@@ -240,13 +234,14 @@
     }
 
     /* ========================================
-       4. HERO
+       4. HERO AND PROFILE PHOTO
     ======================================== */
     .hero {
       padding: 110px 0 100px;
-      background:
-        radial-gradient(ellipse at 85% 10%,
-          var(--accent), transparent 45%);
+      background: radial-gradient(
+        ellipse at 85% 10%,
+        var(--accent), transparent 45%
+      );
     }
 
     .hero-grid {
@@ -284,6 +279,17 @@
       border-radius: 22px;
       padding: 30px;
       box-shadow: var(--shadow);
+    }
+
+    .profile-photo {
+      display: block;
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin: 0 auto 25px;
     }
 
     .hero-card-label {
@@ -388,6 +394,7 @@
 
     .card p {
       font-size: 0.94rem;
+      overflow-wrap: anywhere;
     }
 
     .tags {
@@ -414,7 +421,28 @@
     }
 
     /* ========================================
-       7. SKILLS
+       7. RESEARCH POSTERS
+    ======================================== */
+    .poster-card {
+      overflow-wrap: anywhere;
+    }
+
+    .poster-filename {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.76rem !important;
+      line-height: 1.5;
+    }
+
+    .poster-note {
+      font-size: 0.9rem;
+      margin-top: 22px;
+    }
+
+    /* ========================================
+       8. SKILLS
     ======================================== */
     .skills-grid {
       display: grid;
@@ -438,7 +466,7 @@
     }
 
     /* ========================================
-       8. EXPERIENCE TIMELINE
+       9. EXPERIENCE TIMELINE
     ======================================== */
     .timeline {
       max-width: 850px;
@@ -485,7 +513,7 @@
     }
 
     /* ========================================
-       9. CONTACT
+       10. CONTACT
     ======================================== */
     .contact-panel {
       background: var(--accent);
@@ -511,7 +539,7 @@
     }
 
     /* ========================================
-       10. FOOTER
+       11. FOOTER
     ======================================== */
     footer {
       padding: 30px 0;
@@ -536,7 +564,7 @@
     }
 
     /* ========================================
-       11. RESPONSIVE DESIGN
+       12. RESPONSIVE DESIGN
     ======================================== */
     @media (max-width: 900px) {
       .hero-grid {
@@ -656,6 +684,7 @@
       <div class="nav-links" id="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
+        <a href="#posters">Posters</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -671,7 +700,9 @@
       <div class="container hero-grid">
 
         <div>
-          <div class="eyebrow">Data Science · Applied Mathematics · Economics</div>
+          <div class="eyebrow">
+            Data Science · Applied Mathematics · Economics
+          </div>
 
           <h1>
             Turning data into
@@ -689,9 +720,19 @@
               Explore My Research →
             </a>
 
-            <!-- Replace with the path to your actual CV -->
-            <a class="button button-secondary" href="assets/Jonathan_Juarez_CV.pdf">
+            <a
+              class="button button-secondary"
+              href="assets/Jonathan_Juarez_CV.pdf">
               View My CV ↗
+            </a>
+
+            <!-- Replace with your actual LinkedIn profile URL -->
+            <a
+              class="button button-secondary"
+              href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
+              target="_blank"
+              rel="noopener noreferrer">
+              LinkedIn ↗
             </a>
           </div>
 
@@ -700,7 +741,14 @@
           </p>
         </div>
 
-        <aside class="hero-card" aria-label="Research interests">
+        <aside class="hero-card" aria-label="Profile and research interests">
+
+          <!-- Put your photo at assets/images/profile.jpg -->
+          <img
+            class="profile-photo"
+            src="assets/images/profile.jpg"
+            alt="Portrait of Jonathan Juarez">
+
           <div class="hero-card-label">Research interests</div>
 
           <h2 style="font-size: 1.65rem;">
@@ -721,6 +769,7 @@
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
+
         <div class="section-heading">
           <div class="eyebrow">About me</div>
           <h2>Connecting technical methods with real-world problems.</h2>
@@ -765,12 +814,14 @@
             </p>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- RESEARCH -->
     <section class="section alternate-section" id="research">
       <div class="container">
+
         <div class="section-heading">
           <div class="eyebrow">Research</div>
           <h2>Investigating complex systems through data.</h2>
@@ -799,9 +850,8 @@
               <span class="tag">Imputation</span>
             </div>
 
-            <!-- Replace # with your paper, poster, or repository -->
-            <a class="card-link" href="#contact">
-              Research details coming soon →
+            <a class="card-link" href="#posters">
+              View related research poster →
             </a>
           </article>
 
@@ -819,11 +869,11 @@
               <span class="tag">Google Earth Engine</span>
               <span class="tag">GIS</span>
               <span class="tag">Remote Sensing</span>
-              <span class="tag">ML</span>
+              <span class="tag">Machine Learning</span>
             </div>
 
-            <a class="card-link" href="#contact">
-              Research details coming soon →
+            <a class="card-link" href="#posters">
+              View related research posters →
             </a>
           </article>
 
@@ -844,8 +894,8 @@
               <span class="tag">Causal Inference</span>
             </div>
 
-            <a class="card-link" href="#contact">
-              Research details coming soon →
+            <a class="card-link" href="#posters">
+              Explore research posters →
             </a>
           </article>
 
@@ -853,9 +903,153 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
+    <!-- RESEARCH POSTERS -->
+    <section class="section" id="posters">
       <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">Research archive</div>
+          <h2>Research posters & presentations.</h2>
+          <p class="section-intro">
+            A chronological collection of research posters covering
+            environmental science, remote sensing, machine learning,
+            mathematical modeling, and community resilience.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <!-- 2024 POSTER -->
+          <article class="card poster-card">
+            <div class="card-number">2024 · POSTER 01</div>
+            <h3>Remote Sensing for Forest Health and Wildfire Mitigation</h3>
+
+            <p>
+              Research poster on remote sensing applications for forest
+              health and wildfire mitigation.
+            </p>
+
+            <p class="poster-filename">
+              2024_Remote_Sensing_for_Forest_Health_and_Wildfire_Mitigation.pdf
+            </p>
+
+            <a
+              class="card-link"
+              href="assets/posters/2024_Remote_Sensing_for_Forest_Health_and_Wildfire_Mitigation.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open poster PDF ↗
+            </a>
+          </article>
+
+          <!-- 2025 POSTER -->
+          <article class="card poster-card">
+            <div class="card-number">2025 · POSTER 02</div>
+            <h3>Near-Real-Time Monitoring of Gridded Livestock Methane Emissions Using Multi-Source Data Integration</h3>
+
+            <p>
+              Multi-source data integration and modeling for monitoring
+              gridded livestock methane emissions.
+            </p>
+
+            <p class="poster-filename">
+              2025_Near_Real_Time_Monitoring_of_Gridded_Livestock_Methane_Emissions_Using_Multi-Source_Data_Integration.pdf
+            </p>
+
+            <a
+              class="card-link"
+              href="assets/posters/2025_Near_Real_Time_Monitoring_of_Gridded_Livestock_Methane_Emissions_Using_Multi-Source_Data_Integration.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open poster PDF ↗
+            </a>
+          </article>
+
+          <!-- 2025 POSTER -->
+          <article class="card poster-card">
+            <div class="card-number">2025 · POSTER 03</div>
+            <h3>Lightning-Driven Wildfire Risk and Forest Loss in Six Rivers National Forest</h3>
+
+            <p>
+              Geospatial analysis of wildfire history, lightning,
+              forest loss, vegetation, and environmental conditions
+              in Six Rivers National Forest.
+            </p>
+
+            <p class="poster-filename">
+              2025_Lightning_Driven_Wildfire_Risk_and_Forest_Loss_in_Six_Rivers_National_Forest.pdf
+            </p>
+
+            <a
+              class="card-link"
+              href="assets/posters/2025_Lightning_Driven_Wildfire_Risk_and_Forest_Loss_in_Six_Rivers_National_Forest.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open poster PDF ↗
+            </a>
+          </article>
+
+          <!-- 2026 POSTER -->
+          <article class="card poster-card">
+            <div class="card-number">2026 · POSTER 04</div>
+            <h3>MCM Problem A: Modeling Smartphone Battery Drain — Cal Poly Humboldt</h3>
+
+            <p>
+              Mathematical modeling of smartphone battery drain
+              for the Mathematical Contest in Modeling.
+            </p>
+
+            <p class="poster-filename">
+              2026_MCM_Problem_A_Modeling_Smartphone_Battery_Drain_Cal_Poly_Humboldt.pdf
+            </p>
+
+            <a
+              class="card-link"
+              href="assets/posters/2026_MCM_Problem_A_Modeling_Smartphone_Battery_Drain_Cal_Poly_Humboldt.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open poster PDF ↗
+            </a>
+          </article>
+
+          <!-- 2026 POSTER -->
+          <article class="card poster-card">
+            <div class="card-number">2026 · POSTER 05</div>
+            <h3>University of Kansas ARISE — KDSC</h3>
+
+            <p>
+              Research completed through the University of Kansas
+              ARISE / Kansas Data Science Consortium program.
+            </p>
+
+            <p class="poster-filename">
+              2026_University_of_Kansas_ARISE_KDSC.pdf
+            </p>
+
+            <a
+              class="card-link"
+              href="assets/posters/2026_University_of_Kansas_ARISE_KDSC.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Open poster PDF ↗
+            </a>
+          </article>
+
+        </div>
+
+        <p class="poster-note">
+          Place all five PDF files in the
+          <code>assets/posters/</code> directory. Filenames must match
+          the links above exactly.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section alternate-section" id="projects">
+      <div class="container">
+
         <div class="section-heading">
           <div class="eyebrow">Selected work</div>
           <h2>Projects, methods, and applications.</h2>
@@ -882,10 +1076,11 @@
               <span class="tag">SQL</span>
             </div>
 
-            <a class="card-link"
-               href="https://github.com/YOUR-USERNAME"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+              class="card-link"
+              href="https://github.com/YOUR-USERNAME"
+              target="_blank"
+              rel="noopener noreferrer">
               View on GitHub ↗
             </a>
           </article>
@@ -906,10 +1101,11 @@
               <span class="tag">Visualization</span>
             </div>
 
-            <a class="card-link"
-               href="https://github.com/YOUR-USERNAME"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+              class="card-link"
+              href="https://github.com/YOUR-USERNAME"
+              target="_blank"
+              rel="noopener noreferrer">
               View on GitHub ↗
             </a>
           </article>
@@ -930,10 +1126,11 @@
               <span class="tag">Geospatial Data</span>
             </div>
 
-            <a class="card-link"
-               href="https://github.com/YOUR-USERNAME"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+              class="card-link"
+              href="https://github.com/YOUR-USERNAME"
+              target="_blank"
+              rel="noopener noreferrer">
               View on GitHub ↗
             </a>
           </article>
@@ -943,8 +1140,9 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="section alternate-section" id="skills">
+    <section class="section" id="skills">
       <div class="container">
+
         <div class="section-heading">
           <div class="eyebrow">Technical toolkit</div>
           <h2>Methods I use to investigate problems.</h2>
@@ -954,6 +1152,7 @@
 
           <article class="skill-group">
             <h3>Programming & Data</h3>
+
             <div class="tags">
               <span class="tag">Python</span>
               <span class="tag">SQL</span>
@@ -962,6 +1161,7 @@
               <span class="tag">Pandas</span>
               <span class="tag">NumPy</span>
             </div>
+
             <p>
               Data cleaning, transformation, integration, database querying,
               and reproducible analytical workflows.
@@ -970,6 +1170,7 @@
 
           <article class="skill-group">
             <h3>Statistics & Machine Learning</h3>
+
             <div class="tags">
               <span class="tag">Regression</span>
               <span class="tag">ANOVA</span>
@@ -977,6 +1178,7 @@
               <span class="tag">Scikit-learn</span>
               <span class="tag">SHAP</span>
             </div>
+
             <p>
               Statistical inference, predictive modeling, model evaluation,
               feature interpretation, and quantitative analysis.
@@ -985,12 +1187,14 @@
 
           <article class="skill-group">
             <h3>Geospatial & Environmental Data</h3>
+
             <div class="tags">
               <span class="tag">Google Earth Engine</span>
               <span class="tag">QGIS</span>
               <span class="tag">ArcGIS</span>
               <span class="tag">Remote Sensing</span>
             </div>
+
             <p>
               Spatial data processing, satellite-derived indicators,
               geographic visualization, and environmental monitoring.
@@ -999,12 +1203,14 @@
 
           <article class="skill-group">
             <h3>Research & Communication</h3>
+
             <div class="tags">
               <span class="tag">Data Visualization</span>
               <span class="tag">Technical Writing</span>
               <span class="tag">Research Design</span>
               <span class="tag">Git</span>
             </div>
+
             <p>
               Research synthesis, transparent reporting, scientific
               communication, and collaborative project development.
@@ -1016,8 +1222,9 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="section" id="experience">
+    <section class="section alternate-section" id="experience">
       <div class="container">
+
         <div class="section-heading">
           <div class="eyebrow">Experience & involvement</div>
           <h2>Learning through research and collaboration.</h2>
@@ -1028,6 +1235,7 @@
           <article class="timeline-item">
             <div class="timeline-date">2025 · Research Experience</div>
             <h3>Stanford University — Environmental Research</h3>
+
             <p>
               Contributed to research on anthropogenic methane emissions
               through multi-source data integration, missing-data
@@ -1038,6 +1246,7 @@
           <article class="timeline-item">
             <div class="timeline-date">2025–Present · Research</div>
             <h3>Forest Change & Wildfire Analysis</h3>
+
             <p>
               Investigated environmental change using remote sensing,
               climate indicators, historical wildfire records, and
@@ -1048,6 +1257,7 @@
           <article class="timeline-item">
             <div class="timeline-date">2026 · Research Experience</div>
             <h3>Economic Resilience & Public Institutions</h3>
+
             <p>
               Explored how extreme events affect public resources and
               community outcomes through longitudinal data and
@@ -1058,6 +1268,7 @@
           <article class="timeline-item">
             <div class="timeline-date">Campus Leadership</div>
             <h3>Data Science Club & Sustainability</h3>
+
             <p>
               Supporting interdisciplinary learning, student research,
               sustainability education, and community-centered projects.
@@ -1067,18 +1278,20 @@
         </div>
 
         <p style="margin-top: 30px;">
-          <!-- Replace with a complete resume or experience page -->
-          <a class="button button-secondary"
-             href="assets/Jonathan_Juarez_CV.pdf">
+          <a
+            class="button button-secondary"
+            href="assets/Jonathan_Juarez_CV.pdf">
             View Full CV ↗
           </a>
         </p>
+
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container">
+
         <div class="contact-panel">
           <div class="eyebrow">Get in touch</div>
           <h2>Let's connect through research.</h2>
@@ -1090,24 +1303,31 @@
           </p>
 
           <div class="contact-links">
-            <!-- Replace the email address -->
-            <a href="mailto:YOUR-EMAIL@example.com">Email ↗</a>
 
-            <!-- Replace the GitHub username -->
-            <a href="https://github.com/YOUR-USERNAME"
-               target="_blank"
-               rel="noopener noreferrer">
+            <!-- Replace with your actual email -->
+            <a href="mailto:YOUR-EMAIL@example.com">
+              Email ↗
+            </a>
+
+            <!-- Replace YOUR-USERNAME with your GitHub username -->
+            <a
+              href="https://github.com/YOUR-USERNAME"
+              target="_blank"
+              rel="noopener noreferrer">
               GitHub ↗
             </a>
 
-            <!-- Replace the LinkedIn URL -->
-            <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
-               target="_blank"
-               rel="noopener noreferrer">
+            <!-- Replace YOUR-LINKEDIN with your LinkedIn profile URL -->
+            <a
+              href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
+              target="_blank"
+              rel="noopener noreferrer">
               LinkedIn ↗
             </a>
+
           </div>
         </div>
+
       </div>
     </section>
 
