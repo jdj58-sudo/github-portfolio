@@ -1,1444 +1,371 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Jonathan Juarez | Data Science & Analytics</title>
+  <title>[Your Name] | [Your Profession/Field]</title>
 
-  <meta
-    name="description"
-    content="Jonathan Juarez's professional portfolio in data science, applied mathematics, economics, and environmental analytics."
-  >
+  <meta name="description"
+        content="[Your Name]'s academic and research portfolio in [Field 1], [Field 2], and [Field 3].">
+
+  <meta name="author" content="[Your Name]">
+  <meta name="theme-color" content="#101c2c">
+
+  <!-- Open Graph metadata for sharing -->
+  <meta property="og:title" content="[Your Name] | Portfolio">
+  <meta property="og:description"
+        content="[Brief description of your expertise, e.g., Data science, research, and quantitative analysis].">
+  <meta property="og:type" content="website">
 
   <style>
+    /* ========================================
+       1. DESIGN SYSTEM
+    ======================================== */
     :root {
-      --navy: #10243a;
-      --navy-light: #193650;
-      --teal: #168c87;
-      --teal-light: #dff3f0;
-      --white: #ffffff;
-      --background: #f5f7fa;
+      --bg: #f7f8f6;
       --surface: #ffffff;
-      --text: #243447;
-      --muted: #657487;
-      --border: #dce3ea;
-      --shadow: 0 12px 32px rgba(16, 36, 58, 0.07);
+      --text: #18242d;
+      --muted: #62717c;
+      --primary: #176b59;
+      --primary-dark: #104d40;
+      --accent: #d9e9df;
+      --border: #dfe5e1;
+      --nav-bg: rgba(247, 248, 246, 0.94);
       --max-width: 1120px;
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(20, 40, 35, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg: #101821;
+      --surface: #19242e;
+      --text: #edf2f4;
+      --muted: #a6b4be;
+      --primary: #75c9a8;
+      --primary-dark: #a2e0c3;
+      --accent: #243c36;
+      --border: #30404b;
+      --nav-bg: rgba(16, 24, 33, 0.94);
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 85px;
+      scroll-padding-top: 90px;
     }
 
     body {
-      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--background);
+      margin: 0;
+      background: var(--bg);
       color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.7;
+      transition: background 0.2s, color 0.2s;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    button {
-      font: inherit;
-    }
-
+    /* ========================================
+       2. LAYOUT & COMPONENTS
+    ======================================== */
     .container {
-      width: min(var(--max-width), calc(100% - 40px));
+      max-width: var(--max-width);
       margin: 0 auto;
+      padding: 0 24px;
     }
 
-    /* Navigation */
-
+    /* Navbar */
     .navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-inner {
-      min-height: 72px;
+    .nav-container {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      align-items: center;
+      height: 70px;
     }
 
     .brand {
-      color: var(--navy);
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.4px;
-      white-space: nowrap;
-    }
-
-    .brand span {
-      color: var(--teal);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: var(--text);
     }
 
     .nav-links {
       display: flex;
+      gap: 24px;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
       color: var(--muted);
+      font-weight: 500;
+      transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--teal);
+      color: var(--primary);
     }
 
-    .nav-cta {
-      background: var(--navy);
-      color: white !important;
-      padding: 9px 16px;
-      border-radius: 6px;
-      font-weight: 700;
-    }
-
-    /* Hero */
-
-    .hero {
-      background: var(--navy);
-      color: white;
-      padding: 92px 0 88px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 440px;
-      height: 440px;
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      border-radius: 50%;
-      right: -100px;
-      top: -150px;
-      box-shadow:
-        0 0 0 45px rgba(255, 255, 255, 0.025),
-        0 0 0 90px rgba(255, 255, 255, 0.02);
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.55fr 0.75fr;
-      gap: 65px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      color: #77d7ce;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
-      line-height: 1.08;
-      letter-spacing: -2px;
-      margin-bottom: 22px;
-      max-width: 750px;
-    }
-
-    .hero h1 span {
-      color: #77d7ce;
-    }
-
-    .hero-description {
-      color: #d0dbe5;
-      max-width: 660px;
-      font-size: 1.08rem;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 19px;
-      border-radius: 6px;
-      font-weight: 750;
-      font-size: 0.9rem;
-      transition: transform 0.2s, background 0.2s;
-      border: 1px solid transparent;
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
       cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--teal);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #117772;
-    }
-
-    .btn-outline {
-      border-color: rgba(255, 255, 255, 0.35);
-      color: white;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .hero-tags span {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 5px 10px;
-      border-radius: 4px;
-      color: #dce8f0;
-      font-size: 0.78rem;
-    }
-
-    .profile-wrap {
-      justify-self: end;
-      width: min(100%, 285px);
-    }
-
-    .profile-frame {
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      padding: 10px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .profile-frame img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 7px;
-      background: var(--navy-light);
-    }
-
-    .profile-caption {
-      text-align: center;
-      color: #d0dbe5;
-      font-size: 0.82rem;
-      margin-top: 13px;
+      color: var(--text);
+      font-size: 0.9rem;
     }
 
     /* Sections */
-
     section {
-      padding: 76px 0;
+      padding: 100px 0 60px 0;
     }
 
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 25px;
-      margin-bottom: 32px;
+    /* Hero Section */
+    .hero {
+      padding-top: 160px;
+      padding-bottom: 100px;
+      text-align: center;
     }
 
-    .section-label {
-      color: var(--teal);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 1.7px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .section-heading h2 {
-      color: var(--navy);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+    .hero h1 {
+      font-size: 3rem;
       line-height: 1.2;
-      letter-spacing: -0.8px;
+      margin-bottom: 16px;
     }
 
-    .section-intro {
-      max-width: 590px;
+    .hero p {
+      font-size: 1.25rem;
       color: var(--muted);
-      font-size: 0.96rem;
+      max-width: 600px;
+      margin: 0 auto 32px auto;
     }
 
-    /* Value proposition */
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
 
-    .value-grid {
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Grid Layout for Projects/Research */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
     }
 
-    .value-card {
+    .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 27px;
-      border-radius: 9px;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary-dark);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    /* Forms */
+    .contact-form {
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .value-number {
-      color: var(--teal);
-      font-weight: 850;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
+    .form-group {
+      margin-bottom: 20px;
     }
 
-    .value-card h3 {
-      color: var(--navy);
-      font-size: 1.1rem;
-      margin-bottom: 10px;
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
     }
 
-    .value-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* About */
-
-    .about-section {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.5fr;
-      gap: 65px;
-      align-items: start;
-    }
-
-    .about-aside {
-      background: var(--navy);
-      color: white;
-      padding: 28px;
-      border-radius: 9px;
-    }
-
-    .about-aside h3 {
-      font-size: 1.15rem;
-      margin-bottom: 15px;
-    }
-
-    .about-aside ul {
-      list-style: none;
-    }
-
-    .about-aside li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      color: #d4dfe8;
-      font-size: 0.88rem;
-    }
-
-    .about-aside li:last-child {
-      border-bottom: none;
-    }
-
-    .about-copy p {
-      margin-bottom: 17px;
-      color: var(--muted);
-    }
-
-    .about-copy strong {
-      color: var(--navy);
-    }
-
-    /* Projects */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      padding: 27px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: #8accc6;
-    }
-
-    .project-type {
-      display: inline-block;
-      color: var(--teal);
-      font-weight: 800;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 12px;
-    }
-
-    .project-card h3 {
-      color: var(--navy);
-      font-size: 1.22rem;
-      line-height: 1.4;
-      margin-bottom: 12px;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      font-size: 0.91rem;
-      margin-bottom: 17px;
-    }
-
-    .project-details {
-      list-style: none;
-      margin: 0 0 20px;
-    }
-
-    .project-details li {
-      padding: 7px 0 7px 18px;
-      position: relative;
-      font-size: 0.87rem;
-      color: var(--text);
-    }
-
-    .project-details li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 17px;
-      width: 6px;
-      height: 6px;
-      background: var(--teal);
-      border-radius: 50%;
-    }
-
-    .project-link {
-      color: var(--teal);
-      font-weight: 800;
-      font-size: 0.88rem;
-      margin-top: auto;
-      padding-top: 10px;
-      align-self: flex-start;
-    }
-
-    .project-link:hover {
-      color: var(--navy);
-    }
-
-    /* Posters */
-
-    .posters-section {
-      background: #eaf0f5;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .poster-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .poster-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 19px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .poster-year {
-      display: inline-block;
-      color: var(--teal);
-      font-weight: 850;
-      font-size: 0.8rem;
-      margin-bottom: 4px;
-    }
-
-    .poster-item h3 {
-      color: var(--navy);
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .poster-item p {
-      color: var(--muted);
-      font-size: 0.84rem;
-      margin-top: 4px;
-    }
-
-    .poster-link {
-      white-space: nowrap;
-      font-weight: 800;
-      color: var(--teal);
-      font-size: 0.87rem;
-    }
-
-    .poster-link:hover {
-      color: var(--navy);
-    }
-
-    /* Skills */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .skill-group {
-      background: var(--surface);
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 23px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
     }
-
-    .skill-group h3 {
-      color: var(--navy);
-      font-size: 1rem;
-      margin-bottom: 13px;
-    }
-
-    .skill-group p {
-      color: var(--muted);
-      font-size: 0.87rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 15px;
-    }
-
-    .skill-tags span {
-      background: #edf3f6;
-      color: #34485c;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-    }
-
-    /* Experience */
-
-    .experience-list {
-      display: grid;
-      gap: 0;
-      border-left: 2px solid var(--border);
-      margin-left: 8px;
-    }
-
-    .experience-item {
-      padding: 0 0 30px 28px;
-      position: relative;
-    }
-
-    .experience-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .experience-item::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: var(--teal);
-      border: 3px solid var(--background);
-      border-radius: 50%;
-      left: -8px;
-      top: 5px;
-    }
-
-    .experience-item h3 {
-      color: var(--navy);
-      font-size: 1.08rem;
-    }
-
-    .experience-meta {
-      color: var(--teal);
-      font-size: 0.84rem;
-      font-weight: 750;
-      margin: 4px 0 8px;
-    }
-
-    .experience-item p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      max-width: 800px;
-    }
-
-    /* Contact */
-
-    .contact-section {
-      background: var(--navy);
-      color: white;
-    }
-
-    .contact-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 35px;
-    }
-
-    .contact-section .section-label {
-      color: #77d7ce;
-    }
-
-    .contact-section h2 {
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .contact-section p {
-      color: #d0dbe5;
-      max-width: 620px;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    /* Footer */
 
     footer {
-      background: #0b1928;
-      color: #aebdca;
-      padding: 24px 0;
-      font-size: 0.8rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1.4fr 0.7fr;
-        gap: 30px;
-      }
-
-      .about-grid {
-        gap: 30px;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .container {
-        width: min(100% - 30px, var(--max-width));
-      }
-
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 15px 0;
-        gap: 12px;
-      }
-
-      .nav-links {
-        gap: 12px 17px;
-        font-size: 0.82rem;
-      }
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .projects-grid,
-      .value-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        letter-spacing: -1.2px;
-      }
-
-      .profile-wrap {
-        justify-self: start;
-        width: 210px;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .poster-item {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media print {
-      .navbar,
-      .hero-actions,
-      .contact-actions,
-      footer {
-        display: none;
-      }
-
-      body {
-        background: white;
-      }
-
-      section,
-      .hero,
-      .contact-section {
-        padding: 25px 0;
-        background: white;
-        color: #10243a;
-      }
-
-      .hero-description,
-      .contact-section p,
-      .about-copy p {
-        color: #34485c;
-      }
-
-      .hero h1 span,
-      .eyebrow {
-        color: #168c87;
-      }
-
-      .project-card,
-      .value-card {
-        box-shadow: none;
-        break-inside: avoid;
-      }
+      text-align: center;
+      padding: 40px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
     }
   </style>
 </head>
-
 <body>
 
   <!-- Navigation -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="#home">JONATHAN <span>JUAREZ</span></a>
-
-      <nav class="nav-links" aria-label="Main navigation">
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">[Your Name]</a>
+      <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#posters">Research</a>
-        <a href="#skills">Expertise</a>
-        <a href="#experience">Experience</a>
-        <a class="nav-cta" href="#contact">Contact</a>
-      </nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">Dark Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>[Hi, I'm Your Name]</h1>
+      <p>[A short, powerful sentence describing your core value proposition, specialization, or research interests.]</p>
+      <a href="#portfolio" class="btn">View My Work</a>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Data Science · Applied Mathematics · Economics</p>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>[Provide a more detailed introduction here. Talk about your educational background, academic accomplishments, current role, or technical skill sets. Keep it engaging and professional.]</p>
+    </div>
+  </section>
 
-          <h1>
-            Turning complex data into
-            <span>actionable insight.</span>
-          </h1>
-
-          <p class="hero-description">
-            I apply quantitative methods, statistical modeling, and data-driven
-            research to investigate environmental systems, economic resilience,
-            and public policy challenges.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
-
-            <a
-              class="btn btn-outline"
-              href="assets/Jonathan_Juarez_CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Résumé / CV ↗
-            </a>
-          </div>
-
-          <div class="hero-tags">
-            <span>Machine Learning</span>
-            <span>Statistical Modeling</span>
-            <span>Environmental Analytics</span>
-            <span>Economic Research</span>
-          </div>
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container">
+      <h2>Featured Projects &amp; Research</h2>
+      <div class="grid">
+        
+        <!-- Project Card 1 -->
+        <div class="card">
+          <span class="tag">[Category/Tool]</span>
+          <h3>[Project Title One]</h3>
+          <p>[A comprehensive description explaining the problem, your quantitative or analytical methodology, and the ultimate outcome or impact.]</p>
         </div>
 
-        <div class="profile-wrap">
-          <div class="profile-frame">
-            <img
-              src="assets/images/profile.jpg"
-              alt="Portrait of Jonathan Juarez"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-            >
-
-            <div
-              style="
-                display: none;
-                aspect-ratio: 4 / 5;
-                place-items: center;
-                text-align: center;
-                padding: 20px;
-                color: #d0dbe5;
-                background: #193650;
-                border-radius: 7px;
-              "
-            >
-              Add your portrait at<br>
-              <strong>assets/images/profile.jpg</strong>
-            </div>
-          </div>
-
-          <p class="profile-caption">
-            Researcher · Analyst · Data Scientist in Training
-          </p>
+        <!-- Project Card 2 -->
+        <div class="card">
+          <span class="tag">[Category/Tool]</span>
+          <h3>[Project Title Two]</h3>
+          <p>[A comprehensive description explaining the problem, your quantitative or analytical methodology, and the ultimate outcome or impact.]</p>
         </div>
+
+        <!-- Project Card 3 -->
+        <div class="card">
+          <span class="tag">[Category/Tool]</span>
+          <h3>[Project Title Three]</h3>
+          <p>[A comprehensive description explaining the problem, your quantitative or analytical methodology, and the ultimate outcome or impact.]</p>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Professional value proposition -->
-    <section id="focus">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="section-label">Professional Focus</p>
-            <h2>From data to decisions.</h2>
-          </div>
-
-          <p class="section-intro">
-            My work connects quantitative analysis with real-world questions,
-            translating complex datasets into evidence that supports
-            research, planning, and decision-making.
-          </p>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 style="text-align: center;">Get In Touch</h2>
+      <form class="contact-form" action="[Your Form Action URL]" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
         </div>
-
-        <div class="value-grid">
-          <article class="value-card">
-            <p class="value-number">01 / ANALYZE</p>
-            <h3>Quantitative Problem-Solving</h3>
-            <p>
-              Use statistical analysis, data cleaning, visualization, and
-              computational methods to identify patterns and evaluate evidence.
-            </p>
-          </article>
-
-          <article class="value-card">
-            <p class="value-number">02 / MODEL</p>
-            <h3>Predictive & Statistical Modeling</h3>
-            <p>
-              Apply machine learning and statistical techniques to study
-              environmental change, economic outcomes, and complex systems.
-            </p>
-          </article>
-
-          <article class="value-card">
-            <p class="value-number">03 / COMMUNICATE</p>
-            <h3>Research With Practical Relevance</h3>
-            <p>
-              Communicate technical findings through research posters,
-              visualizations, and evidence-based interpretation.
-            </p>
-          </article>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
         </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="about-section" id="about">
-      <div class="container about-grid">
-        <aside class="about-aside">
-          <h3>Research Interests</h3>
-          <ul>
-            <li>Machine Learning & Applied Statistics</li>
-            <li>Energy, Climate & Environmental Systems</li>
-            <li>Economics & Community Resilience</li>
-            <li>Public Policy & Data-Driven Decisions</li>
-            <li>Responsible, Equitable Technology</li>
-          </ul>
-        </aside>
-
-        <div class="about-copy">
-          <p class="section-label">About Me</p>
-          <div class="section-heading">
-            <h2>Analytical thinking. Real-world questions.</h2>
-          </div>
-
-          <p>
-            I am a Cal Poly Humboldt student pursuing
-            <strong>Data Science with Applied Mathematics and Economics with
-            Applied Mathematics</strong>. My academic work combines
-            computational analysis with an interest in how environmental,
-            economic, and public systems affect communities.
-          </p>
-
-          <p>
-            Through research experiences spanning methane emissions,
-            wildfire risk, and community resilience, I have worked with
-            heterogeneous datasets and quantitative methods to investigate
-            problems that require both technical rigor and contextual
-            understanding.
-          </p>
-
-          <p>
-            I am particularly interested in using data science to evaluate
-            policy, understand systemic risk, and help develop solutions
-            that are both analytically sound and socially meaningful.
-          </p>
-
-          <p>
-            My approach is grounded in a simple principle:
-            <strong>good analysis should make complex problems easier to
-            understand, evaluate, and address.</strong>
-          </p>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
         </div>
-      </div>
-    </section>
+        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-    <!-- Selected projects -->
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="section-label">Selected Work</p>
-            <h2>Research & Analytics Projects</h2>
-          </div>
-
-          <p class="section-intro">
-            Selected projects demonstrating data integration, statistical
-            analysis, machine learning, and applied problem-solving.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-
-          <article class="project-card">
-            <span class="project-type">Environmental Data Science · 2025</span>
-
-            <h3>Monitoring Anthropogenic Methane Emissions</h3>
-
-            <p>
-              Investigated near-real-time estimation of gridded livestock
-              methane emissions through multi-source data integration.
-            </p>
-
-            <ul class="project-details">
-              <li>
-                Integrated livestock datasets from FAOSTAT, USDA, EUROSTAT,
-                and AFRISTAT.
-              </li>
-              <li>
-                Applied KNN imputation, Bayesian Ridge, and XGBoost.
-              </li>
-              <li>
-                Used SHAP to help interpret model predictions.
-              </li>
-            </ul>
-
-            <a class="project-link" href="#posters">
-              View research poster →
-            </a>
-          </article>
-
-          <article class="project-card">
-            <span class="project-type">Environmental Modeling · 2024–2026</span>
-
-            <h3>Wildfire Risk & Forest Loss</h3>
-
-            <p>
-              Examined relationships among forest change, vegetation
-              conditions, drought, and wildfire activity in Six Rivers
-              National Forest.
-            </p>
-
-            <ul class="project-details">
-              <li>
-                Worked with remote sensing and geospatial datasets.
-              </li>
-              <li>
-                Integrated vegetation indices, drought indicators,
-                and wildfire records.
-              </li>
-              <li>
-                Explored spatial patterns of forest loss and burn severity.
-              </li>
-            </ul>
-
-            <a class="project-link" href="#posters">
-              View research posters →
-            </a>
-          </article>
-
-          <article class="project-card">
-            <span class="project-type">Economic Research · 2026</span>
-
-            <h3>Extreme Events & Community Resilience</h3>
-
-            <p>
-              Studied how extreme events may affect public library resources
-              and community outcomes, with an emphasis on public funding
-              and operating hours.
-            </p>
-
-            <ul class="project-details">
-              <li>
-                Worked with longitudinal and public-sector data.
-              </li>
-              <li>
-                Explored event-study approaches and counterfactual comparisons.
-              </li>
-              <li>
-                Investigated differences in state and federal funding responses.
-              </li>
-            </ul>
-
-            <a class="project-link" href="#posters">
-              View related research →
-            </a>
-          </article>
-
-          <article class="project-card">
-            <span class="project-type">Mathematical Modeling · 2026</span>
-
-            <h3>Smartphone Battery Drain Modeling</h3>
-
-            <p>
-              Participated in a mathematical modeling project focused on
-              understanding and modeling smartphone battery behavior.
-            </p>
-
-            <ul class="project-details">
-              <li>
-                Applied mathematical modeling to a practical technology problem.
-              </li>
-              <li>
-                Developed and evaluated a model-based analysis.
-              </li>
-              <li>
-                Presented the work through a technical research poster.
-              </li>
-            </ul>
-
-            <a class="project-link" href="#posters">
-              View research poster →
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Research posters -->
-    <section class="posters-section" id="posters">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="section-label">Publications & Presentations</p>
-            <h2>Research Poster Archive</h2>
-          </div>
-
-          <p class="section-intro">
-            Browse selected research presentations in remote sensing,
-            environmental modeling, mathematical modeling, and applied
-            data science.
-          </p>
-        </div>
-
-        <div class="poster-list">
-
-          <article class="poster-item">
-            <div>
-              <span class="poster-year">2024</span>
-              <h3>Remote Sensing for Forest Health and Wildfire Mitigation</h3>
-              <p>Remote sensing · Forest health · Wildfire mitigation</p>
-            </div>
-
-            <a
-              class="poster-link"
-              href="assets/posters/2024_Remote_Sensing_for_Forest_Health_and_Wildfire_Mitigation.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View PDF ↗
-            </a>
-          </article>
-
-          <article class="poster-item">
-            <div>
-              <span class="poster-year">2025</span>
-              <h3>
-                Near-Real-Time Monitoring of Gridded Livestock Methane
-                Emissions Using Multi-Source Data Integration
-              </h3>
-              <p>Machine learning · Data integration · Methane emissions</p>
-            </div>
-
-            <a
-              class="poster-link"
-              href="assets/posters/2025_Near_Real_Time_Monitoring_of_Gridded_Livestock_Methane_Emissions_Using_Multi-Source_Data_Integration.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View PDF ↗
-            </a>
-          </article>
-
-          <article class="poster-item">
-            <div>
-              <span class="poster-year">2025</span>
-              <h3>
-                Lightning-Driven Wildfire Risk and Forest Loss in Six Rivers
-                National Forest
-              </h3>
-              <p>Geospatial analysis · Wildfire · Forest change</p>
-            </div>
-
-            <a
-              class="poster-link"
-              href="assets/posters/2025_Lightning_Driven_Wildfire_Risk_and_Forest_Loss_in_Six_Rivers_National_Forest.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View PDF ↗
-            </a>
-          </article>
-
-          <article class="poster-item">
-            <div>
-              <span class="poster-year">2026</span>
-              <h3>
-                MCM Problem A: Modeling Smartphone Battery Drain
-              </h3>
-              <p>Mathematical modeling · Computational analysis</p>
-            </div>
-
-            <a
-              class="poster-link"
-              href="assets/posters/2026_MCM_Problem_A_Modeling_Smartphone_Battery_Drain_Cal_Poly_Humboldt.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View PDF ↗
-            </a>
-          </article>
-
-          <article class="poster-item">
-            <div>
-              <span class="poster-year">2026</span>
-              <h3>University of Kansas ARISE — Kansas Data Science Consortium</h3>
-              <p>Applied research · Data science · Community resilience</p>
-            </div>
-
-            <a
-              class="poster-link"
-              href="assets/posters/2026_University_of_Kansas_ARISE_KDSC.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View PDF ↗
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="section-label">Technical Capabilities</p>
-            <h2>Tools & Expertise</h2>
-          </div>
-
-          <p class="section-intro">
-            A working toolkit for data preparation, quantitative analysis,
-            modeling, and communicating results.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-
-          <article class="skill-group">
-            <h3>Programming & Data</h3>
-            <p>Data processing, database work, and computational analysis.</p>
-            <div class="skill-tags">
-              <span>Python</span>
-              <span>R</span>
-              <span>SQL</span>
-              <span>Java</span>
-              <span>Stata</span>
-            </div>
-          </article>
-
-          <article class="skill-group">
-            <h3>Statistics & Modeling</h3>
-            <p>Quantitative methods for inference and prediction.</p>
-            <div class="skill-tags">
-              <span>Regression</span>
-              <span>ANOVA</span>
-              <span>XGBoost</span>
-              <span>Scikit-learn</span>
-              <span>SHAP</span>
-            </div>
-          </article>
-
-          <article class="skill-group">
-            <h3>Geospatial & Environmental</h3>
-            <p>Spatial analysis and environmental data integration.</p>
-            <div class="skill-tags">
-              <span>Google Earth Engine</span>
-              <span>QGIS</span>
-              <span>ArcGIS</span>
-              <span>Remote Sensing</span>
-            </div>
-          </article>
-
-          <article class="skill-group">
-            <h3>Analytics & Communication</h3>
-            <p>Data presentation, reporting, and technical communication.</p>
-            <div class="skill-tags">
-              <span>Excel</span>
-              <span>Visualization</span>
-              <span>Research Posters</span>
-              <span>Technical Writing</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="about-section">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="section-label">Experience & Leadership</p>
-            <h2>Research, leadership & impact</h2>
-          </div>
-        </div>
-
-        <div class="experience-list">
-
-          <article class="experience-item">
-            <h3>Researcher — Stanford University, Doerr School of Sustainability</h3>
-            <p class="experience-meta">Summer 2025 · SURGE Research Experience</p>
-            <p>
-              Investigated gridded anthropogenic methane emissions using
-              multi-source data integration, statistical imputation, and
-              machine learning methods.
-            </p>
-          </article>
-
-          <article class="experience-item">
-            <h3>Researcher — Kansas Data Science Consortium</h3>
-            <p class="experience-meta">Summer 2026 · University of Kansas ARISE</p>
-            <p>
-              Explored the relationship between extreme events, public
-              resources, funding responses, and community resilience using
-              applied data analysis.
-            </p>
-          </article>
-
-          <article class="experience-item">
-            <h3>Assistant Editor — Humboldt Economic Index</h3>
-            <p class="experience-meta">Cal Poly Humboldt</p>
-            <p>
-              Contributed to economic indicator research covering topics
-              including employment, housing, permits, and energy consumption.
-            </p>
-          </article>
-
-          <article class="experience-item">
-            <h3>Co-Director — Waste Reduction & Resource Awareness Program</h3>
-            <p class="experience-meta">Cal Poly Humboldt · WRRAP</p>
-            <p>
-              Supported sustainability initiatives and community education,
-              including reuse, waste reduction, and electronic waste programs.
-            </p>
-          </article>
-
-          <article class="experience-item">
-            <h3>President — Data Science Club</h3>
-            <p class="experience-meta">Cal Poly Humboldt · 2026</p>
-            <p>
-              Supporting a collaborative data science community through
-              student-led projects, technical learning, and interdisciplinary
-              engagement.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact-section" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <p class="section-label">Let's Connect</p>
-          <h2>Interested in working together?</h2>
-          <p>
-            I welcome conversations about research, data science,
-            environmental analytics, economic research, and collaborative
-            projects.
-          </p>
-        </div>
-
-        <div class="contact-actions">
-          <a
-            class="btn btn-primary"
-            href="mailto:YOUR-EMAIL@example.com"
-          >
-            Email Me ↗
-          </a>
-
-          <a
-            class="btn btn-outline"
-            href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn ↗
-          </a>
-
-          <a
-            class="btn btn-outline"
-            href="https://github.com/YOUR-USERNAME"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub ↗
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
+  <!-- Footer -->
   <footer>
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Jonathan Juarez. Built for research and analytics.</p>
-
-      <div class="footer-links">
-        <a
-          href="https://www.linkedin.com/in/YOUR-LINKEDIN/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
-
-        <a
-          href="https://github.com/YOUR-USERNAME"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
-
-        <a href="#home">Back to top ↑</a>
-      </div>
+    <div class="container">
+      <p>&copy; [Current Year] [Your Name]. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Dark Mode Logic Script -->
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    const themeBtn = document.getElementById('themeBtn');
+    
+    // Check for saved preference, otherwise use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeBtn.textContent = 'Light Mode';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeBtn.textContent = 'Dark Mode';
+    }
 
-</body>
-</html>
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeBtn.textContent = 'Dark Mode';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeBtn.textContent = 'Light Mode';
+      }
